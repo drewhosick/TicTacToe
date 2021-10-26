@@ -8,6 +8,18 @@ body {
     margin-bottom: 3rem;
 }
 
+.fa-times {
+    font-size: 12rem;
+}
+
+.black {
+    color: black;
+}
+
+.green-yellow {
+    color: greenyellow;
+}
+
 .container {
     width: 100%;
     margin: auto;
