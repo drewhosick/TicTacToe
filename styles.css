@@ -1,0 +1,35 @@
+body {
+    background-color: black;
+}
+
+.main-title {
+    color: greenyellow;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.game-grid {
+    display: grid;
+    width: 95%;
+    max-width: 700px;
+    margin: auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, minmax(200px, auto));
+    justify-content: center;
+    align-content: center;
+    grid-gap: 20px;
+    
+}
+
+div {
+    background-color: greenyellow;
+    align-self:stretch;
+    
+    
+}
