@@ -5,11 +5,6 @@ let trackXAndO = {x11: '', x21: '', x31: '', x12: '', x22: '', x32: '',
 
 let turn = 0;
 
-// const checkForWin = () => {
-    
-    
-// };
-
 const addXO = (location, player) => {
     const changeBoard = (loc, xOrO) => {
         boxes.forEach(box => {
@@ -26,7 +21,7 @@ const addXO = (location, player) => {
 
     // after figuring the spot for the x or o and then add it if not
     if (trackXAndO[location] != '') {
-        // illegal move
+        // illegal move add alert later
     } else {
         if (player === 'even') {
             trackXAndO[location] = 'X';
