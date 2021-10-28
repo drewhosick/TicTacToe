@@ -4,12 +4,14 @@ body {
 
 .main-title {
     color: greenyellow;
+    font-size: 5rem;
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
 
 i {
-    font-size: 12rem;
+    font-size: 11rem;
+    transition: 700ms;
 }
 
 .black {
@@ -29,10 +31,10 @@ i {
 .game-grid {
     display: grid;
     width: 95%;
-    max-width: 700px;
+    max-width: 600px;
     margin: auto;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, minmax(200px, auto));
+    grid-template-rows: repeat(3, minmax(170px, auto));
     justify-content: center;
     align-content: center;
     grid-gap: 20px;
@@ -42,6 +44,49 @@ i {
 div {
     background-color: greenyellow;
     align-self:stretch;
+    
+    
+}
+
+.winner {
+    font-size: 3rem;
+    color: greenyellow;
+}
+
+@media screen and (max-width: 750px) {
+    .game-grid {
+        max-width: 400px;
+        grid-template-rows: repeat(3, minmax(100px, auto));
+    }
+    
+    i {
+        font-size: 6rem;
+    }
+
+    .main-title {
+        font-size: 3rem;
+    }
+    
+    
+}
+
+@media screen and (max-width: 450px) {
+    .game-grid {
+        max-width: 300px;
+        grid-template-rows: repeat(3, minmax(75px, auto));
+    }
+    
+    i {
+        font-size: 5rem;
+    }
+
+    .main-title {
+        font-size: 2rem;
+    }
+    .winner {
+        font-size: 1.5rem;
+    }
+    
     
     
 }

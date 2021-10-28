@@ -57,10 +57,10 @@ const winCheck = () => {
     let Win8 = board[2] + board[4] + board[6];
 
     if (Win1 === 'XXX' || Win2 === 'XXX'  || Win3 === 'XXX' || Win4 === 'XXX' || Win5 === 'XXX' || Win6 === 'XXX' || Win7 === 'XXX' || Win8 === 'XXX') {
-        alert('X is Winner');
+        document.querySelector('.winner').innerHTML = "X is the winner!"
     };
     if (Win1 === 'OOO' || Win2 === 'OOO'  || Win3 === 'OOO' || Win4 === 'OOO' || Win5 === 'OOO' || Win6 === 'OOO' || Win7 === 'OOO' || Win8 === 'OOO') {
-        alert('O is Winner');
+        document.querySelector('.winner').innerHTML = "O is the winner!"
     };
 };
 
