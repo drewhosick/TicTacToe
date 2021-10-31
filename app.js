@@ -1,7 +1,7 @@
 const boxes = document.querySelectorAll('div');
 
 let board = ['','','','','','','','','']; // create array for board
-
+let completeGame = 0;
 let turn = 0; // set turn to turn 0 so we can track who's turn it is
 
 const addXO = (location, player) => {
@@ -61,6 +61,8 @@ const winCheck = () => {
     ];
 
     const changeColour = (idx) => {
+        /* This function and Switch statement changes the winning combination
+        XXX or OOO to Red to highlight the win */
 
         switch(idx) {
             case 0:
@@ -133,11 +135,13 @@ const winCheck = () => {
     winningCombos.forEach((win, index) => {
         console.log(win, index);
         if( win == 'XXX') {
-            document.querySelector('.winner').innerHTML = "X is the winner!";
+            document.querySelector('.winner').innerHTML = "X is the winner!  To play again refresh the page.";
             changeColour(index);
+            completeGame++;
         } else if ( win == 'OOO') {
-            document.querySelector('.winner').innerHTML = "O is the winner!";
+            document.querySelector('.winner').innerHTML = "O is the winner!  To play again refresh the page.";
             changeColour(index);
+            completeGame++;
         }
     });
     
@@ -146,9 +150,9 @@ const winCheck = () => {
 boxes.forEach(box => {
     box.addEventListener('click', (e) => {
         // this is where we call addXO and then send the box target and which player is playing
-        if (turn % 2 === 0 ) {  // Checks that number is even with no remainder
+        if (turn % 2 === 0 && completeGame === 0) {  // Checks that number is even with no remainder
             addXO(box.id, 'even');
-        } else {
+        } else if (completeGame === 0) {
             addXO(box.id, 'odd');
         }
     });

@@ -56,7 +56,7 @@ div {
 }
 
 .winner {
-    font-size: 3rem;
+    font-size: 2rem;
     color: greenyellow;
 }
 
@@ -72,6 +72,10 @@ div {
 
     .main-title {
         font-size: 3rem;
+    }
+
+    .winner {
+        font-size: 1.5rem;
     }
     
     
@@ -91,7 +95,7 @@ div {
         font-size: 2rem;
     }
     .winner {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     
     
