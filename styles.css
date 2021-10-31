@@ -9,6 +9,11 @@ body {
     margin-bottom: 3rem;
 }
 
+p {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
 i {
     font-size: 11rem;
     transition: 700ms;
@@ -20,6 +25,10 @@ i {
 
 .green-yellow {
     color: greenyellow;
+}
+
+.red {
+    color: red;
 }
 
 .container {
@@ -43,9 +52,7 @@ i {
 
 div {
     background-color: greenyellow;
-    align-self:stretch;
-    
-    
+    align-self:stretch;   
 }
 
 .winner {

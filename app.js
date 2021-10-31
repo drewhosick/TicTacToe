@@ -46,22 +46,101 @@ const addXO = (location, player) => {
     winCheck();
 };
 
-const winCheck = () => {
-    let Win1 = board[0] + board[1] + board[2];
-    let Win2 = board[3] + board[4] + board[5];
-    let Win3 = board[6] + board[7] + board[8];
-    let Win4 = board[0] + board[3] + board[6];
-    let Win5 = board[1] + board[4] + board[7];
-    let Win6 = board[2] + board[5] + board[8];
-    let Win7 = board[0] + board[4] + board[8];
-    let Win8 = board[2] + board[4] + board[6];
 
-    if (Win1 === 'XXX' || Win2 === 'XXX'  || Win3 === 'XXX' || Win4 === 'XXX' || Win5 === 'XXX' || Win6 === 'XXX' || Win7 === 'XXX' || Win8 === 'XXX') {
-        document.querySelector('.winner').innerHTML = "X is the winner!"
+
+const winCheck = () => {
+    let winningCombos = [
+        [board[0] + board[1] + board[2]],
+        [board[3] + board[4] + board[5]],
+        [board[6] + board[7] + board[8]],
+        [board[0] + board[3] + board[6]],
+        [board[1] + board[4] + board[7]],
+        [board[2] + board[5] + board[8]],
+        [board[0] + board[4] + board[8]],
+        [board[2] + board[4] + board[6]]
+    ];
+
+    const changeColour = (idx) => {
+
+        switch(idx) {
+            case 0:
+                document.querySelector('#b0').firstChild.classList.add('red');
+                document.querySelector('#b0').firstChild.classList.remove('black');
+                document.querySelector('#b1').firstChild.classList.add('red');
+                document.querySelector('#b1').firstChild.classList.remove('black');
+                document.querySelector('#b2').firstChild.classList.add('red');
+                document.querySelector('#b2').firstChild.classList.remove('black');
+                break;
+            case 1:
+                document.querySelector('#b3').firstChild.classList.add('red');
+                document.querySelector('#b3').firstChild.classList.remove('black');
+                document.querySelector('#b4').firstChild.classList.add('red');
+                document.querySelector('#b4').firstChild.classList.remove('black');
+                document.querySelector('#b5').firstChild.classList.add('red');
+                document.querySelector('#b5').firstChild.classList.remove('black');
+                break;
+            case 2:
+                document.querySelector('#b6').firstChild.classList.add('red');
+                document.querySelector('#b6').firstChild.classList.remove('black');
+                document.querySelector('#b7').firstChild.classList.add('red');
+                document.querySelector('#b7').firstChild.classList.remove('black');
+                document.querySelector('#b8').firstChild.classList.add('red');
+                document.querySelector('#b8').firstChild.classList.remove('black');
+                break;
+            case 3:
+                document.querySelector('#b0').firstChild.classList.add('red');
+                document.querySelector('#b0').firstChild.classList.remove('black');
+                document.querySelector('#b3').firstChild.classList.add('red');
+                document.querySelector('#b3').firstChild.classList.remove('black');
+                document.querySelector('#b6').firstChild.classList.add('red');
+                document.querySelector('#b6').firstChild.classList.remove('black');
+                break;
+            case 4:
+                document.querySelector('#b1').firstChild.classList.add('red');
+                document.querySelector('#b1').firstChild.classList.remove('black');
+                document.querySelector('#b4').firstChild.classList.add('red');
+                document.querySelector('#b4').firstChild.classList.remove('black');
+                document.querySelector('#b7').firstChild.classList.add('red');
+                document.querySelector('#b7').firstChild.classList.remove('black');
+                break;
+            case 5:
+                document.querySelector('#b2').firstChild.classList.add('red');
+                document.querySelector('#b2').firstChild.classList.remove('black');
+                document.querySelector('#b5').firstChild.classList.add('red');
+                document.querySelector('#b5').firstChild.classList.remove('black');
+                document.querySelector('#b8').firstChild.classList.add('red');
+                document.querySelector('#b8').firstChild.classList.remove('black');
+                break;
+            case 6:
+                document.querySelector('#b0').firstChild.classList.add('red');
+                document.querySelector('#b0').firstChild.classList.remove('black');
+                document.querySelector('#b4').firstChild.classList.add('red');
+                document.querySelector('#b4').firstChild.classList.remove('black');
+                document.querySelector('#b8').firstChild.classList.add('red');
+                document.querySelector('#b8').firstChild.classList.remove('black');
+                break;
+            case 7:
+                document.querySelector('#b2').firstChild.classList.add('red');
+                document.querySelector('#b2').firstChild.classList.remove('black');
+                document.querySelector('#b4').firstChild.classList.add('red');
+                document.querySelector('#b4').firstChild.classList.remove('black');
+                document.querySelector('#b6').firstChild.classList.add('red');
+                document.querySelector('#b6').firstChild.classList.remove('black');
+                break;
+        }
     };
-    if (Win1 === 'OOO' || Win2 === 'OOO'  || Win3 === 'OOO' || Win4 === 'OOO' || Win5 === 'OOO' || Win6 === 'OOO' || Win7 === 'OOO' || Win8 === 'OOO') {
-        document.querySelector('.winner').innerHTML = "O is the winner!"
-    };
+    
+    winningCombos.forEach((win, index) => {
+        console.log(win, index);
+        if( win == 'XXX') {
+            document.querySelector('.winner').innerHTML = "X is the winner!";
+            changeColour(index);
+        } else if ( win == 'OOO') {
+            document.querySelector('.winner').innerHTML = "O is the winner!";
+            changeColour(index);
+        }
+    });
+    
 };
 
 boxes.forEach(box => {
@@ -69,7 +148,6 @@ boxes.forEach(box => {
         // this is where we call addXO and then send the box target and which player is playing
         if (turn % 2 === 0 ) {  // Checks that number is even with no remainder
             addXO(box.id, 'even');
-            console.log(box.id);
         } else {
             addXO(box.id, 'odd');
         }
